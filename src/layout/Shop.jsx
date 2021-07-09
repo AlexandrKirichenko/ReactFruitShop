@@ -12,7 +12,7 @@ function Shop() {
     const { loading, order, isBasketShow, alertName, setGoods} = useContext(ShopContext)
 
     useEffect(function getGoods() {
-        fetch('http://localhost:8000/goods')
+        fetch(('https://60e474325bcbca001749e9ef.mockapi.io/goods'))
             .then(response => response.json())
             .then((goods) => {
                 setGoods(goods)
