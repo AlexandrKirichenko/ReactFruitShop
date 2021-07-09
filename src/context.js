@@ -6,7 +6,7 @@ export const ShopContext = createContext()
 const initialState = {
     goods: [],
     loading: true,
-    order: JSON.parse(localStorage.getItem('basket')),
+    order: JSON.parse(localStorage.getItem('basket')) || [],
     isBasketShow: false,
     alertName: '',
 }
