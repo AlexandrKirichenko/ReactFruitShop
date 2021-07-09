@@ -30,6 +30,12 @@ nav {
   gap: 1rem;
 }
 
+.nav-logo-block {
+  margin-top: 1rem;
+  font-size: 4rem;
+}
+
+
 .card {
   display: flex;
   flex-direction: column;
