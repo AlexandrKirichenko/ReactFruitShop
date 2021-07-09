@@ -1,18 +1,21 @@
-import {createContext, useReducer} from 'react'
-import {reducer} from './reducer'
+import { createContext, useReducer, useEffect } from 'react';
+import {reducer} from './reducer';
 
-export const ShopContext = createContext()
+export const ShopContext = createContext();
 
 const initialState = {
     goods: [],
     loading: true,
-    order: JSON.parse(localStorage.getItem('basket')) || [],
+    order:JSON.parse(localStorage.getItem('basket')) || [],
     isBasketShow: false,
     alertName: '',
 }
 
 export const ContextProvider = ({children}) => {
     const [value, dispatch] = useReducer(reducer, initialState)
+
+    useEffect(() => {
+        localStorage.setItem('basket', JSON.stringify(value.order))}, [value.order])
 
     value.closeAlert = () => {
         dispatch({type: 'CLOSE_ALERT'})
@@ -23,15 +26,15 @@ export const ContextProvider = ({children}) => {
     }
 
     value.incQuantity = (itemId) => {
-        dispatch({type: 'INCREMENT_QUANTITY', payload: {id: itemId}})
+        dispatch({type: 'INCREMENT_QUANTITY', payload: {id:itemId}})
     }
 
     value.decQuantity = (itemId) => {
-        dispatch({type: 'DECREMENT_QUANTITY', payload: {id: itemId}})
+        dispatch({type: 'DECREMENT_QUANTITY', payload: {id:itemId}})
     }
 
     value.removeFromBasket = (itemId) => {
-        dispatch({type: 'REMOVE_FROM_BASKET', payload: {id: itemId}})
+        dispatch({type: 'REMOVE_FROM_BASKET', payload: {id:itemId}})
     }
 
     value.handleBasketShow = () => {
@@ -44,5 +47,5 @@ export const ContextProvider = ({children}) => {
 
     return (
         <ShopContext.Provider value={value}>{children}</ShopContext.Provider>
-    )
-}
+    );
+};
