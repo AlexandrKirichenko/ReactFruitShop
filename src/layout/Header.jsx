@@ -6,7 +6,7 @@ function Header(){
             <div className="nav-wrapper">
                 <img className="nav-logo" width={50} height={50} src="/img/mainlogo.svg" alt="logo"/>
                 <Link className="brand-logo" to="/">Fruit Shop</Link>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <ul id="nav-mobile" className="right">
                     <Link to="/cart">Cart</Link>
                 </ul>
             </div>
