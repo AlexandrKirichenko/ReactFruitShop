@@ -14,7 +14,7 @@ function BasketItem({id, title, price, quantity, sale}) {
             {title}<i className='material-icons basket-quantity' onClick={() => decQuantity(id)}>remove</i>
             {quantity}кг.{' '}
             <i className='material-icons basket-quantity' onClick={() =>
-                incQuantity(id)}>add</i> = {price * quantity}$ {sale && discount()>0 && `(скидка ${discount()}$)`}
+                incQuantity(id)}>add</i> = {price * quantity -discount()}$
             <span className="secondary-content" onClick={() => removeFromBasket(id)}>
             <i className="material-icons basket-delete ">close</i>
             </span>
