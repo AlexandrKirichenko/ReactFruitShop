@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {ShopContext} from "../context"
 
-function GoodsItem({id, title, img, price}) {
+function GoodsItem({id, title, img, price, sale}) {
     const {addToBasket} = useContext(ShopContext)
 
     return (
@@ -15,7 +15,7 @@ function GoodsItem({id, title, img, price}) {
             <div className="card-action">
                 <button
                     className="btn"
-                    onClick={() => addToBasket({id, title, price})}>
+                    onClick={() => addToBasket({id, title, price, sale})}>
                     Купить
                 </button>
                 <span className="right" style={{fontSize: '1.6rem'}}>{price}$</span>
