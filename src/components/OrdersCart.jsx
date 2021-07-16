@@ -1,14 +1,15 @@
-import {useContext} from 'react';
-import {ShopContext} from '../context';
+import {useContext} from 'react'
+import {ShopContext} from '../context'
 import {BasketItem} from './BasketItem'
 
 function OrdersCart() {
     const {order = [], handleBasketShow = () => {}} = useContext(ShopContext)
 
-    const totalPrice = order.reduce((sum,el) => {
-        let discount = 0;
-        if (el.quantity > 2) discount = Math.floor(el.quantity / 3) * 0.5 * el.price
-        return  sum + (el.price* el.quantity - discount);
+    const totalPrice = order.reduce((sum, el) => {
+        let discount = 0
+
+        if (el.sale && el.quantity > 2) discount = Math.floor(el.quantity / 3) * 0.5 * el.price
+        return sum + (el.price * el.quantity - discount)
     }, 0)
 
     return (
@@ -28,3 +29,6 @@ function OrdersCart() {
 }
 
 export {OrdersCart}
+
+
+
