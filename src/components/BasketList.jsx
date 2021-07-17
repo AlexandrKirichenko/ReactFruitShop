@@ -1,6 +1,7 @@
 import {useContext} from 'react'
 import {ShopContext} from '../context'
 import {BasketItem} from './BasketItem'
+import { Link } from 'react-router-dom'
 
 function BasketList() {
     const {order = [], handleBasketShow = () => {}} = useContext(ShopContext)
