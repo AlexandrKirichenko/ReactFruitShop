@@ -24,7 +24,9 @@ function BasketList() {
                 Общая стоимость(со скидкой):{totalPrice}$
             </li>
             <li className="collection-item">
-                <button className="btn btn-small">Оформить</button>
+                <Link to="/cart">
+                    <button className="btn btn-small">Оформить</button>
+                </Link>
             </li>
             <i className="material-icons basket-close" onClick={handleBasketShow}>close</i>
         </ul>)
